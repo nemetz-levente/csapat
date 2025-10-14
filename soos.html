@@ -4,15 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>5 HTML kérdés</h2>
-    <form action="soos.html">
-        <label for="fname">Mi a HTML és mire használják?</label><br>
-        <input type="text" id="fname" name="fname"><br>
-        <label for="lname">Mi a különbség a < div > és a < span > elem között?</label><br>
-        <input type="text" id="lname" name="lname"><br><br>
-        <input type="submit" value="Submit">
-    </form>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            background-color: #e8e6ff;
+        }
+        .submit {
+            border: none;
+            outline: none;
+            background-color: #6c5ce7;
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            border-radius: 5px;
+            transition: all ease 0.1s;
+            box-shadow: 0px 5px 0px 0px #a29bfe;
+        }
+
+        .form{
+            background-color: #fff;
+            padding-top: 10%;
+            padding-bottom: 10%;
+            padding-left: 20%;
+            padding-right: 20%;
+            border-radius: 10px;
+        }
+
+
+        .submit:active {
+            transform: translateY(5px);
+            box-shadow: 0px 0px 0px 0px #a29bfe;
+        }
+    </style>
+    <div class="form">
+        <h2>5 HTML kérdés</h2>
+        <form action="soos.html">
+            <label for="kerdes1">Mi a HTML és mire használják?</label><br>
+            <input type="text" id="kerdes1" name="kerdes1"><br>
+            <label for="kerdes2">Mi a különbség a < div > és a < span > elem között?</label><br>
+            <input type="text" id="kerdes2" name="kerdes2"><br><br>
+            <label for="kerdes3">Milyen szerepe van az attribútumoknak egy HTML elemben? Adj példát!</label><br>
+            <input type="text" id="kerdes3" name="kerdes3"><br><br>
+            <label for="kerdes4">Hogyan lehet egy képet beilleszteni HTML-ben?</label><br>
+            <input type="text" id="kerdes4" name="kerdes4"><br><br>
+            <label for="kerdes5">Mi a különbség a blokkszintű és a soron belüli (inline) elemek között?</label><br>
+            <input type="text" id="kerdes5" name="kerdes5"><br><br>
+            <input class="submit" type="submit" value="Submit">
+        </form>
+    </div>
 </body>
 </html>
