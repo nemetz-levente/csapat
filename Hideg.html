@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Kérdések</title>
+</head>
+<body>
+    <h1>Válaszolj az alábbi HTML kérdésekre!</h1>
+    <form id="quizForm">
+        <label>1. Mi a HTML jelentése?</label><br>
+        <input type="text" name="q1"><br><br>
+
+        <label>2. Melyik HTML elem jelöli a legnagyobb címsort?</label><br>
+        <input type="text" name="q2"><br><br>
+
+        <label>3. Milyen taggal lehet képet beszúrni?</label><br>
+        <input type="text" name="q3"><br><br>
+
+        <label>4. Milyen fájlkiterjesztése van a HTML fájloknak?</label><br>
+        <input type="text" name="q4"><br><br>
+
+        <label>5. Melyik taggal lehet linket létrehozni?</label><br>
+        <input type="text" name="q5"><br><br>
+
+        <button type="button" onclick="elkuld()">Elküld</button>
+    </form>
+
+    <h2>Válaszaid:</h2>
+    <div id="valaszok"></div>
+
+    <script>
+        function elkuld() {
+            const form = document.getElementById('quizForm');
+            const valaszok = `
+                <p>1. ${form.q1.value}</p>
+                <p>2. ${form.q2.value}</p>
+                <p>3. ${form.q3.value}</p>
+                <p>4. ${form.q4.value}</p>
+                <p>5. ${form.q5.value}</p>
+            `;
+            document.getElementById('valaszok').innerHTML = valaszok;
+        }
+    </script>
+</body>
+</html>
