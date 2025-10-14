@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HTML kvíz </title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; max-width:800px; margin:40px auto; padding:0 16px; line-height:1.6; color:#111; }
+    header { text-align:center; margin-bottom:30px; }
+    h1 { font-size:1.8rem; margin:0; }
+    ol { padding-left:20px; }
+    li { margin:20px 0; background:#fafafa; padding:16px; border-radius:10px; border:1px solid #ddd; }
+    .question { font-weight:600; margin-bottom:8px; }
+    input[type=text] { width:100%; padding:8px; border-radius:6px; border:1px solid #ccc; font-size:1rem; margin-bottom:8px; }
+    button { padding:8px 12px; border-radius:6px; border:1px solid #ccc; background:#fff; cursor:pointer; }
+    .feedback { margin-top:8px; font-weight:500; }
+    .correct { color:green; }
+    .incorrect { color:crimson; }
+    footer { margin-top:30px; color:#666; text-align:center; font-size:0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kérdések a HTML-ről</h1>
+    <p>Írd be a válaszodat minden kérdésre, majd kattints az „Ellenőrzés” gombra!</p>
+  </header>
+
+  <ol>
+    <li>
+      <div class="question">1. Mit jelent a HTML rövidítése?</div>
+      <input type="text" id="q1" placeholder="Írd ide a választ..." />
+      <button onclick="checkAnswer(1)">Ellenőrzés</button>
+      <div id="f1" class="feedback"></div>
+    </li>
+
+    <li>
+      <div class="question">2. Melyik HTML elem tartalmazza a metaadatokat és a címet?</div>
+      <input type="text" id="q2" placeholder="Írd ide a választ..." />
+      <button onclick="checkAnswer(2)">Ellenőrzés</button>
+      <div id="f2" class="feedback"></div>
+    </li>
+
+    <li>
+      <div class="question">3. Melyik elem hoz létre hivatkozást, és melyik attribútum adja meg az URL-t?</div>
+      <input type="text" id="q3" placeholder="Írd ide a választ..." />
+      <button onclick="checkAnswer(3)">Ellenőrzés</button>
+      <div id="f3" class="feedback"></div>
+    </li>
+
+    <li>
+      <div class="question">4. Adj példát blokk- és inline-elemre!</div>
+      <input type="text" id="q4" placeholder="Írd ide a választ..." />
+      <button onclick="checkAnswer(4)">Ellenőrzés</button>
+      <div id="f4" class="feedback"></div>
+    </li>
+
+    <li>
+      <div class="question">5. Mire való az <code>alt</code> attribútum az <code>&lt;img&gt;</code> elemnél?</div>
+      <input type="text" id="q5" placeholder="Írd ide a választ..." />
+      <button onclick="checkAnswer(5)">Ellenőrzés</button>
+      <div id="f5" class="feedback"></div>
+    </li>
+  </ol>
+
+  <footer>
+    <p>✨ Tipp: próbáld meg először önállóan, majd nézd meg a helyes választ!</p>
+  </footer>
+
+  <script>
+    const answers = {
+      1: "HyperText Markup Language",
+      2: "<head>",
+      3: "<a> és href",
+      4: "blokk: <div> vagy <p>, inline: <span> vagy <a>",
+      5: "alternatív szöveget ad a képekhez"
+    };
+
+    function normalize(text) {
+      return text.toLowerCase().replace(/\s+/g, ' ').trim();
+    }
+
+    function checkAnswer(num) {
+      const userInput = document.getElementById('q' + num).value;
+      const feedback = document.getElementById('f' + num);
+      if (!userInput) {
+        feedback.innerHTML = "<span class='incorrect'>Írj be egy választ!</span>";
+        return;
+      }
+
+      const correct = normalize(answers[num]);
+      const user = normalize(userInput);
+
+      if (user.includes(correct.split(' ')[0]) || correct.includes(user.split(' ')[0])) {
+        feedback.innerHTML = "<span class='correct'>✅ Helyes válasz!</span><br><small><strong>Helyes:</strong> " + answers[num] + "</small>";
+      } else {
+        feedback.innerHTML = "<span class='incorrect'>❌ Nem egészen...</span><br><small><strong>Helyes válasz:</strong> " + answers[num] + "</small>";
+      }
+    }
+  </script>
+</body>
+</html>
